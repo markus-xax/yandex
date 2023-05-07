@@ -83,6 +83,9 @@ public class HomeActivity extends AppCompatActivity implements UserLocationObjec
 
         submitRequest();
             
+        /*
+        А именно тут мне нужно чтобы картинка(pin) распологалась немного выше, чем ее центр
+        */
         mapObjects.addPlacemark(ROUTE_START_LOCATION,
                                     ImageProvider.fromResource(HomeActivity.this, R.drawable.pin));
     }

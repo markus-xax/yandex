@@ -44,7 +44,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
-public class GoActivityUser extends AppCompatActivity implements UserLocationObjectListener, DrivingSession.DrivingRouteListener {
+public class HomeActivity extends AppCompatActivity implements UserLocationObjectListener, DrivingSession.DrivingRouteListener {
 
     private String hash;
     private DBClass dbClass = new DBClass();
@@ -81,13 +81,10 @@ public class GoActivityUser extends AppCompatActivity implements UserLocationObj
         drivingRouter = DirectionsFactory.getInstance().createDrivingRouter();
         mapObjects = mapView.getMap().getMapObjects().addCollection();
 
-        try {
-            hash = dbClass.getHash(this);
-        } catch (Exception e){
-            Log.d("hash", e.getMessage());
-        }
-
         submitRequest();
+            
+        mapObjects.addPlacemark(ROUTE_START_LOCATION,
+                                    ImageProvider.fromResource(HomeActivity.this, R.drawable.pin));
     }
 
     @Override
